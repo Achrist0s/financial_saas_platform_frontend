@@ -1,0 +1,39 @@
+<!-- Category Modal -->
+<div id="categoryModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add Category</h2>
+            <button class="modal-close" onclick="closeModal('categoryModal')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <form method="post" action="{% url 'add_category' %}" class="modal-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="categoryName">Category Name</label>
+                <input type="text" id="categoryName" name="name" placeholder="Enter category name" required>
+            </div>
+            <div class="form-group">
+                <label>Color</label>
+                <div class="color-grid">
+                    <button type="button" class="color-option active" data-color="#3B82F6" style="background-color: #3B82F6;"></button>
+                    <button type="button" class="color-option" data-color="#10B981" style="background-color: #10B981;"></button>
+                    <button type="button" class="color-option" data-color="#F59E0B" style="background-color: #F59E0B;"></button>
+                    <button type="button" class="color-option" data-color="#EF4444" style="background-color: #EF4444;"></button>
+                    <button type="button" class="color-option" data-color="#8B5CF6" style="background-color: #8B5CF6;"></button>
+                    <button type="button" class="color-option" data-color="#EC4899" style="background-color: #EC4899;"></button>
+                    <button type="button" class="color-option" data-color="#06B6D4" style="background-color: #06B6D4;"></button>
+                    <button type="button" class="color-option" data-color="#84CC16" style="background-color: #84CC16;"></button>
+                </div>
+                <input type="hidden" name="color" id="categoryColor" value="#3B82F6">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('categoryModal')">Cancel</button>
+                <button type="submit" class="btn-primary">Add Category</button>
+            </div>
+        </form>
+    </div>
+</div>
